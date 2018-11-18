@@ -8,6 +8,21 @@
   </url>
   
   <url>
+    <loc>/posts/teaching-with-questions/</loc>
+    <lastmod>2016-06-27T16:59:16-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/preventing-multiple-submissions/</loc>
+    <lastmod>2016-06-20T16:59:16-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/main-app-paths/</loc>
+    <lastmod>2016-06-17T16:59:16-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/finding-lost-commits/</loc>
     <lastmod>2016-06-15T16:59:16-08:00</lastmod>
   </url>
@@ -31,13 +46,31 @@
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2016-06-15T16:59:16-08:00</lastmod>
+    <lastmod>2016-06-27T16:59:16-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rails/</loc>
+    <lastmod>2016-06-20T16:59:16-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ruby/</loc>
+    <lastmod>2016-06-20T16:59:16-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
     <lastmod>2016-06-15T16:59:16-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/teaching/</loc>
+    <lastmod>2016-06-27T16:59:16-08:00</lastmod>
     <priority>0</priority>
   </url>
   

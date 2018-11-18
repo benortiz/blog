@@ -24,6 +24,37 @@ I create things (furniture, ceramics, video games, etc.) in my free time. You mi
     </item>
     
     <item>
+      <title>Teaching with Questions</title>
+      <link>/posts/teaching-with-questions/</link>
+      <pubDate>Mon, 27 Jun 2016 16:59:16 -0800</pubDate>
+      
+      <guid>/posts/teaching-with-questions/</guid>
+      <description>Long ago, in my early days of junior high AVID, I was taught to teach and lead by asking questions. The most effective way to get a person to understand a concept is to guide them to the conclusion with questions. This way, the learn the concept for themselves.
+For example, today I was trying to teach one of my interns how a form tag worked in HTML. She was hung up on it needing to be next to the button that would submit the form.</description>
+    </item>
+    
+    <item>
+      <title>Preventing Multiple Submissions</title>
+      <link>/posts/preventing-multiple-submissions/</link>
+      <pubDate>Mon, 20 Jun 2016 16:59:16 -0800</pubDate>
+      
+      <guid>/posts/preventing-multiple-submissions/</guid>
+      <description>I have a gem that has been giving me trouble lately. It saved me countless hours of dev time upfront, but is beginning to cause me problems now that I want to extend it. I learned quickly how to clone and edit a gem locally using the gem gem_name, path: &#39;path/to/local/gem&#39;, to get the changes I personally needed.
+The difficulty came when, for some yet inexplicable reason, it was causing duplicate calls.</description>
+    </item>
+    
+    <item>
+      <title>Discovering Rails&#39; main_app</title>
+      <link>/posts/main-app-paths/</link>
+      <pubDate>Fri, 17 Jun 2016 16:59:16 -0800</pubDate>
+      
+      <guid>/posts/main-app-paths/</guid>
+      <description>My third rails engine added to OppSites brought up some interesting challenges. The first two I installed, from Instacart&amp;rsquo;s Open Source repository, were completely self contained in their views. This third one, user_impersonate2, was my first experience with an engine that embedded itself within my own layouts.
+While that behavior was necessary and useful, it was surprising when I started getting errors saying previously working path helpers were undefined.
+It turns out, there is some sort of main_app that can be appended to a path helper to tell it to use the helper in the context of the &amp;ldquo;main app&amp;rdquo; instead of the engine.</description>
+    </item>
+    
+    <item>
       <title>Finding Lost Commits</title>
       <link>/posts/finding-lost-commits/</link>
       <pubDate>Wed, 15 Jun 2016 16:59:16 -0800</pubDate>
