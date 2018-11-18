@@ -1,4 +1,25 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "sam"
+baseURL                 = "/"
+languageCode            = "en-us"
+defaultContentLanguage  = "en"
+isMultilingual          = false
+pygmentsStyle           = "manni"
+pygmentsCodefences      = true
+title                   = "Benjamin Ortiz"
+theme                   = "sam"
+
+[params]
+    dateform            = "Jan 02, 2006"
+    dateformfull        = "Mon Jan 2 2006"
+    homepage            = "main"
+    # footerText          = "So long and thanks for all the fish"
+    description         = "Benjamin Ortiz"
+    twitterCard         = "summary_large_image"
+    primaryImage        = "tn.png"
+
+[[params.mainMenu]]
+    link = "/about"
+    text = "hello"
+
+[[params.mainMenu]]
+    link = "/posts"
+    text = "posts"
