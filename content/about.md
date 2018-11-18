@@ -14,3 +14,7 @@ any way I can.
 
 I create things (furniture, ceramics, video games, etc.) in my free time. You
 might catch me [live streaming](https://twitch.tv/benortiz) my current project.
+
+[github](https://github.com/benortiz) //
+[linkedin](https://linkedin.com/in/ortizben) //
+[dev.to](https://dev.to/benortiz)
