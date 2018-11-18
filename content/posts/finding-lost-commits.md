@@ -2,7 +2,7 @@
 title: "Finding Lost Commits"
 date: 2016-06-15T16:59:16-08:00
 showDate: true
-draft: true
+draft: false
 tags: ["git", "til"]
 ---
 In the process of rebasing with preserving a merge commit (`git rebase -i -p base_branch`),
