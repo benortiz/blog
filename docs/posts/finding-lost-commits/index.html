@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Benjamin Ortiz">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:domain" content="/">
+
+<meta name="twitter:image" content="/tn.png">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="Benjamin Ortiz">
+<meta name="twitter:description" property="og:description" itemprop="description" content="Benjamin Ortiz">
+<meta name="og:type" content="website">
+<meta name="og:url" content="/">
+<meta name="og:image" itemprop="image primaryImageOfPage" content="/tn.png">
+
+<link rel="shortcut icon" href="/sam.ico" id="favicon">
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Finding Lost Commits
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Finding Lost Commits</div>
+
+        
+<div class="section" id="content">
+    <span class="secondary-text">
+      Jun 15, 2016 &#183; 158 words
+    </span>
+    
+    <div class="tag-container">
+        
+        <span class="tag">
+            <a href="/tags/git">
+                git
+            </a>
+        </span>
+        
+        <span class="tag">
+            <a href="/tags/til">
+                til
+            </a>
+        </span>
+        
+    </div>
+    
+    <hr/>
+    <p>In the process of rebasing with preserving a merge commit (<code>git rebase -i -p base_branch</code>),
+I somehow managed to lose two commits I was trying to squash together.</p>
+
+<p>To find the lost commits, I tried to use a combination of git commands.
+First, I tried using <code>git fsck --lost-found</code> which returned a list of
+commits that were &ldquo;dangling&rdquo;. I have no idea how these specific commits
+got lost to time, but now they were found. I also checked <code>git reflog</code>
+which keeps a log of each action and&ndash;it seems&ndash;its sha.</p>
+
+<p>Unfortunately for me, I couldn&rsquo;t find the specific commit I was looking
+to reset everything to in either of these. What I ended up doing was looking
+through my terminal history for a previous time when I had run <code>git log</code>
+and grabbed the commit id from there.</p>
+
+<p>After that, it was a simple <code>git merge --ff-only commit_id</code> and all my
+changes were back.</p>
+
+<p><em>wipes sweat from brow</em></p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/about">hello</a>
+        
+
+    
+        
+            &#183; <a href="/posts">posts</a>
+        
+    
+    &#183; <a href="/">main</a>
+
+</p>
+
+</div>
+
+
+        <div class="section footer"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Benjamin Ortiz</title>
+    <link>/</link>
+    <description>Recent content on Benjamin Ortiz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Nov 2018 10:21:31 -0800</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello</title>
+      <link>/about/</link>
+      <pubDate>Sun, 18 Nov 2018 10:21:31 -0800</pubDate>
+      
+      <guid>/about/</guid>
+      <description>My name is Ben. Nice to meet you.
+I am a full-stack developer at Blue Bottle Coffee. In addition, I have done management, product design, and systems administration.
+Becoming a better teacher is extremely important to me. I&amp;rsquo;d love to help you in any way I can.
+I create things (furniture, ceramics, video games, etc.) in my free time. You might catch me live streaming my current project.</description>
+    </item>
+    
+    <item>
+      <title>Finding Lost Commits</title>
+      <link>/posts/finding-lost-commits/</link>
+      <pubDate>Wed, 15 Jun 2016 16:59:16 -0800</pubDate>
+      
+      <guid>/posts/finding-lost-commits/</guid>
+      <description>In the process of rebasing with preserving a merge commit (git rebase -i -p base_branch), I somehow managed to lose two commits I was trying to squash together.
+To find the lost commits, I tried to use a combination of git commands. First, I tried using git fsck --lost-found which returned a list of commits that were &amp;ldquo;dangling&amp;rdquo;. I have no idea how these specific commits got lost to time, but now they were found.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,6 +6,7 @@ pygmentsStyle           = "manni"
 pygmentsCodefences      = true
 title                   = "Benjamin Ortiz"
 theme                   = "sam"
+publishDir              = "docs"
 
 [params]
     dateform            = "Jan 02, 2006"
