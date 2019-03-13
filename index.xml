@@ -47,7 +47,7 @@ The difficulty came when, for some yet inexplicable reason, it was causing dupli
     <item>
       <title>Discovering Rails&#39; main_app</title>
       <link>/posts/main-app-paths/</link>
-      <pubDate>Fri, 17 Jun 2016 16:59:16 -0800</pubDate>
+      <pubDate>Sat, 18 Jun 2016 00:59:16 +0000</pubDate>
       
       <guid>/posts/main-app-paths/</guid>
       <description>My third rails engine added to OppSites brought up some interesting challenges. The first two I installed, from Instacart&amp;rsquo;s Open Source repository, were completely self contained in their views. This third one, user_impersonate2, was my first experience with an engine that embedded itself within my own layouts.
