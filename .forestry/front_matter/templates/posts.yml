@@ -1,0 +1,26 @@
+---
+label: Posts
+hide_body: false
+display_field: title
+fields:
+- type: text
+  name: title
+  label: Title
+  description: The title of the post
+  config:
+    required: true
+- type: datetime
+  name: date
+  label: Date
+  description: When this was published
+  config:
+    required: true
+- type: boolean
+  name: showDate
+  label: Show Date
+  hidden: false
+  description: Show the date on the post
+- type: tag_list
+  name: tags
+  label: Tags
+  description: Tags for the post
