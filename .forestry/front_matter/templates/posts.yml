@@ -23,3 +23,5 @@ fields:
   name: tags
   label: Tags
   description: Tags for the post
+pages:
+- content/posts/mini-sk4-creating-the-database.md
