@@ -27,4 +27,4 @@ and how it works exactly, but it does work.
 Ah, so it seems that `main_app` forces the use application paths rather
 than the paths from the current context.
 
-Cool!
+Cool.
