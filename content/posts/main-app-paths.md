@@ -1,11 +1,11 @@
 ---
-title: "Discovering Rails' main_app"
-date: 2016-06-17T16:59:16-08:00
+title: Discovering Rails' main_app
+date: 2016-06-18 00:59:16 +0000
 showDate: true
-draft: false
-tags: ["rails"]
----
+tags:
+- rails
 
+---
 My third rails engine added to OppSites brought up some interesting
 challenges. The first two I installed, from [Instacart's Open Source](https://www.instacart.com/opensource)
 repository, were completely self contained in their views. This third one,
@@ -27,4 +27,4 @@ and how it works exactly, but it does work.
 Ah, so it seems that `main_app` forces the use application paths rather
 than the paths from the current context.
 
-Cool.
+Cool!
