@@ -55,3 +55,8 @@ theme = "themeless"
 {{- .Scratch.SetInMap "output" "data" (.Scratch.Get "data") -}}
 {{- .Scratch.Get "output" | jsonify -}}
 ```
+
+Sources:
+https://discourse.gohugo.io/t/build-a-json-api-with-hugos-custom-output-formats/11523/10
+https://forestry.io/blog/build-a-json-api-with-hugo/
+https://gohugo.io/getting-started/quick-start/
