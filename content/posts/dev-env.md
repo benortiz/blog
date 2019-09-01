@@ -1,6 +1,5 @@
 +++
 date = "2019-09-02T19:00:00+00:00"
-draft = true
 showDate = true
 tags = []
 title = "Dev Env"
