@@ -96,3 +96,18 @@ sudo ufw status verbose
 ```
 
 More guidance is available on [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server).
+
+## Development Environment
+Now that the server is there and running and secure(?), we can get to work. Kidding! Time to fiddle with tools.
+
+### Linuxbrew
+I had no idea this was a thing before I started this project!  It doesn't have everything, but [linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) has much more than the `apt` repo that it really made the transition from macOS relatively painless. Follow their instructions to get setup.
+
+I did not follow their instructions for adding linuxbrew to my path because it was causing problems with my `$PATH` variable. I realized the way I had my `.profile` setup, each time I would source the file as I was developing it, it would grow. When I looked later after some time of developing, I noticed that the linuxbrew paths were in there over 80 times 😬. To get around this, I removed their integration and hardcoded the paths they were attempting to add. Check it out in my [dotfiles](https://github.com/benortiz/dotfiles).
+
+Now that that's out of the way, let's try installing some packages.
+```bash
+brew install hub bat diff-so-fancy
+```
+
+Neat!
