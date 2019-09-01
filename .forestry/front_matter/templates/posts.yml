@@ -24,4 +24,5 @@ fields:
   label: Tags
   description: Tags for the post
 pages:
+- content/posts/dev-env.md
 - content/posts/mini-sk4-creating-the-database.md
