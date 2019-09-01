@@ -66,6 +66,12 @@ sudo apt install mosh
 # You'll also need to install mosh on the machine you're mosh-ing from
 ```
 
+I can now use `mosh` as if it were `ssh`.
+
+```bash
+mosh user@server
+```
+
 ### Networking
 _TODO: Figure out how to set this up to only work from a private network via VPN._
 
@@ -111,3 +117,113 @@ brew install hub bat diff-so-fancy
 ```
 
 Neat!
+
+### Copy/Paste
+Oh boy. Now this was a fun one.
+
+Copy/Paste. It sounds so simple. but oh dear god no. Layer on:
+
+1. My local MacOS clipboard
+1. The tmux buffer running on the server
+1. The vim registers running inside of tmux on the server
+1. A 'local' clipboard for the server??
+
+It gets very challenging to find a way to communicate between all these layers, but I think I found a mostly reasonable compromise. 
+
+Rather than try to get every clipboard in sync, I decided on a strategy to add specific commands at each layer that takes its clipboard and pushes it somewhere else. For example, instead of making `y` yank to my MacOS clipboard directly, I have a command that can take the last thing yank'd and push it to my MacOS clipboard.
+
+Okay, let's set this up.
+
+```bash
+# On macOS
+brew install clipper
+```
+[Clipper](https://github.com/wincent/clipper) is this very nice tool that lets you, among other things, add to the system clipboard over tcp. To work, `clipper` needs to be running locally, so I start it with `brew services start clipper`. `clipper` is now running on port 8377, but I still need to expose it to my server so the server can access it. 
+
+This next part is easily [the part that I'm least happy with](https://github.com/wincent/clipper#configuring-mosh). To expose the port, I'm going to open another ssh connection because, as far as I can tell, `mosh` doesn't support reverse port forwarding.
+
+```bash
+# This maps localhost:8377 on the server to localhost:8377 on my mac.
+ssh -R localhost:8377:localhost:8377 user@host
+```
+
+To make this a little easier:
+```bash
+# From clipper documentation
+# In ~/.ssh/config, add a host definition as a shortcut
+Host sandbox-clipper
+  ControlMaster no
+  ControlPath none
+  ExitOnForwardFailure yes
+  Hostname sandbox.example.com
+  RemoteForward 8377 localhost:8377
+  
+# I can run this now _in addition_ to moshing in to get clipboard sync.
+ssh -N -f sandbox-clipper
+
+# And to make it a little easier, an alias for that.
+alias clip-sandbox='ssh -N -f sandbox-clipper'
+```
+
+I'm not very happy to be in a situation where my connection to the server is durable, but my clipboard sync is very fragile on the network.
+
+To use clipper on the server, its very similar to `pbcopy` if you're familiar with the mac tool.
+
+```bash
+echo 'something' | nc -N localhost 8377
+```
+
+Bam! It's on my local clipboard.
+
+To make this easier to use, I've added the following convenience functions.
+
+```bash
+# ~/.bash_aliases
+alias clip="nc -N localhost 8377"
+
+# ~/.vimrc
+# Send register to Clipper clipboard
+nnoremap <silent> <leader>Y :call system('nc -N localhost 8377', @0)<CR>
+
+# ~/.tmux.conf
+# Send buffer to Clipper clipboard
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "nc -N localhost 8377"
+```
+
+Okay, this is great. I now have a way of getting any buffer anywhere to my local clipboard. But what was that bit about earlier? A local clipboard for the server?
+
+So I wanted another clipboard just to make this all more complicated. I didn't want to install and configure X on this headless server just to get access to its clipboard `xclip`. But I want a clipboard that stays on the machine, in the case I want to get something out of ... I dunno, `vim`? and into maybe ... `mutt`?
+
+Whatever, it was a fun dumb tool to write. It's two 'scripts', `ctcopy` and `ctpaste`. All they do is take input from the stdin, write to a tmp file, then read from the tmp file, and write to stdout. 
+
+Here's their source:
+
+```bash
+export CT_CLIPBOARD=/tmp/clipboard
+# ~/.local/bin/ctcopy
+buf=$(command cat "$@")
+echo "$buf" > $CT_CLIPBOARD;
+
+# ~/.local/bin/ctpaste
+touch "${CT_CLIPBOARD}"
+command cat $CT_CLIPBOARD
+```
+
+Please clap.
+
+Some helper functions:
+```bash
+# ~/.vimrc
+# Send register to local clipboard
+nnoremap <silent> <leader>y :call system('ctcopy', getreg('"'))<CR>
+# Set register from local clipboard
+nnoremap <silent> <leader>p :call setreg('"', system('ctpaste'))<CR>
+
+# ~/.tmux.conf
+# Send buffer to local clipboard
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "ctcopy"
+# Set buffer from local clipboard
+bind C-p run "ctpaste | tmux load-buffer - ;"
+```
+
+That's about all I can take of copy/paste for now.
